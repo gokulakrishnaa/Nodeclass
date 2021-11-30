@@ -11,7 +11,7 @@ import {
 import { moviesRouter } from "./routes/movies.js";
 
 const app = express();
-const PORT = 9000;
+const PORT = process.env.PORT;
 
 app.use(express.json());
 
