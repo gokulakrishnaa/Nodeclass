@@ -13,9 +13,8 @@ router
   .route("/")
   .get(async (request, response) => {
     console.log(request.query);
-    const { language, rating } = request.query;
-
-    const filteredMovies = await getMovies();
+    const filter = request.query;
+    const filteredMovies = await getMovies(filter);
     console.log(filteredMovies);
     response.send(filteredMovies);
   })

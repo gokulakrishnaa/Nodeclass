@@ -1,7 +1,11 @@
 import { client } from "./index.js";
 
-async function getMovies() {
-  return await client.db("moviedata").collection("movies").find({}).toArray();
+async function getMovies(filter) {
+  return await client
+    .db("moviedata")
+    .collection("movies")
+    .find(filter)
+    .toArray();
 }
 async function getMovieById(id) {
   return await client.db("moviedata").collection("movies").findOne({ id: id });
