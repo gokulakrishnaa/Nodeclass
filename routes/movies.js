@@ -14,6 +14,9 @@ router
   .get(async (request, response) => {
     console.log(request.query);
     const filter = request.query;
+    if (filter.rating) {
+      filter.rating = +filter.rating;
+    }
     const filteredMovies = await getMovies(filter);
     console.log(filteredMovies);
     response.send(filteredMovies);
