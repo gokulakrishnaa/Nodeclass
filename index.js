@@ -10,12 +10,11 @@ import {
 } from "./helper.js";
 import { moviesRouter } from "./routes/movies.js";
 
+dotenv.config();
 const app = express();
 const PORT = process.env.PORT;
 
 app.use(express.json());
-
-dotenv.config();
 
 const MONGO_URL = process.env.MONGO_URL;
 
