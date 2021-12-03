@@ -9,6 +9,7 @@ import {
   updateMovieById,
 } from "./helper.js";
 import { moviesRouter } from "./routes/movies.js";
+import { usersRouter } from "./routes/users.js";
 import cors from "cors";
 
 dotenv.config();
@@ -34,5 +35,6 @@ app.get("/", (request, response) => {
 });
 
 app.use("/movies", moviesRouter);
+app.use("/users", usersRouter);
 
 app.listen(PORT, () => console.log("App Started in", PORT));
