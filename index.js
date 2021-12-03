@@ -37,4 +37,22 @@ app.get("/", (request, response) => {
 app.use("/movies", moviesRouter);
 app.use("/users", usersRouter);
 
+app.get("/recipes", async (request, response) => {
+  const recipes = await client
+    .db("moviedata")
+    .collection("recipes")
+    .find({})
+    .toArray();
+  response.send(recipes);
+});
+
+app.post("/recipes", async (request, response) => {
+  const data = request.body;
+  const result = await client
+    .db("moviedata")
+    .collection("recipes")
+    .insertMany(data);
+  response.send(result);
+});
+
 app.listen(PORT, () => console.log("App Started in", PORT));
