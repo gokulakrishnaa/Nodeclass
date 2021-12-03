@@ -6,12 +6,13 @@ import {
   deleteMovieById,
   updateMovieById,
 } from "../helper.js";
+import { auth } from "../middleware/auth.js";
 
 const router = express.Router();
 
 router
   .route("/")
-  .get(async (request, response) => {
+  .get(auth, async (request, response) => {
     console.log(request.query);
     const filter = request.query;
     if (filter.rating) {
