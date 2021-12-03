@@ -47,15 +47,16 @@ async function genPassword(password) {
   console.log(salt);
   const hashedPassword = await bcrypt.hash(password, salt);
   console.log(hashedPassword);
+  return hashedPassword;
 }
 
 export {
   getMovies,
   addingMovie,
   getMovieById,
-  getUserByName,
   deleteMovieById,
   updateMovieById,
   genPassword,
   createUser,
+  getUserByName,
 };
