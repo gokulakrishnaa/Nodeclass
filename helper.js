@@ -16,7 +16,7 @@ async function getMovieById(id) {
     .findOne({ _id: ObjectId(id) });
 }
 async function addingMovie(data) {
-  return await client.db("moviedata").collection("movies").insertMany(data);
+  return await client.db("moviedata").collection("movies").insertOne(data);
 }
 async function createUser(data) {
   return await client.db("moviedata").collection("users").insertOne(data);
